@@ -38,7 +38,13 @@ app.post('/add', (req, res) => {
   const ws = wb.Sheets['Data']
   const data = xlsx.utils.sheet_to_json(ws) || []
 
-  data.push({ Name: name, Email: email, Phone: phoneNumber, Wilaya: wilaya })
+  data.push({
+    Name: name,
+    Email: email,
+    Phone: phoneNumber,
+    Wilaya: wilaya,
+    Result: result,
+  })
 
   const newWs = xlsx.utils.json_to_sheet(data)
   wb.Sheets['Data'] = newWs
