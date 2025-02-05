@@ -30,7 +30,7 @@ const loadWorkbook = () => {
 app.post('/add', (req, res) => {
   const { name, email, phoneNumber, wilaya, result } = req.body
 
-  if (!name || !email || !phoneNumber || !wilaya) {
+  if (!name || !email || !phoneNumber || !wilaya || !result) {
     return res.status(400).json({ error: 'All fields are required' })
   }
 
