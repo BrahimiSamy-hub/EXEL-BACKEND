@@ -28,9 +28,14 @@ const loadWorkbook = () => {
 
 // Endpoint to add data to Excel
 app.post('/add', (req, res) => {
-  const { name, email, phoneNumber, wilaya, result } = req.body
+  // const { name, email, phoneNumber, wilaya, result } = req.body
 
-  if (!name || !email || !phoneNumber || !wilaya || !result) {
+  // if (!name || !email || !phoneNumber || !wilaya || !result) {
+  //   return res.status(400).json({ error: 'All fields are required' })
+  // }
+  const { name, phoneNumber, result } = req.body
+
+  if (!name || !phoneNumber || !result) {
     return res.status(400).json({ error: 'All fields are required' })
   }
 
@@ -40,9 +45,9 @@ app.post('/add', (req, res) => {
 
   data.push({
     Name: name,
-    Email: email,
+    // Email: email,
     Phone: phoneNumber,
-    Wilaya: wilaya,
+    // Wilaya: wilaya,
     Result: result,
   })
 
